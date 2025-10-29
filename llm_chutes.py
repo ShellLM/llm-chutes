@@ -72,6 +72,7 @@ def register_models(register):
     for model_definition in get_chutes_models():
         supports_images = get_supports_images(model_definition)
         supports_schema = model_definition.get("supports_schema", False)
+        if "id" not in model_definition: continue
         
         kwargs = dict(
             model_id="chutes/{}".format(model_definition["id"]),
